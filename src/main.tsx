@@ -1,11 +1,13 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Application from './components/Application';
-
-// Say something
-console.log('[ERWT] : Renderer execution started');
+import { Provider } from 'react-redux';
+import store from './services/store';
 
 // Application to Render
+{
+  /* <Provider store={store}></Provider>; */
+}
 const app = <Application />;
 
 // Render application in DOM

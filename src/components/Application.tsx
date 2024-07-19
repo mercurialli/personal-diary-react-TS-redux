@@ -1,121 +1,67 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Application.scss';
-import { icons } from './Icons';
+import { Card } from '@src/presentations/Card';
+import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
+
+const day = [
+  {
+    name: 'day 1 gdfge rgegerge',
+    id: '8',
+  },
+  {
+    name: 'day 2',
+    id: '35',
+  },
+  {
+    name: 'day 3',
+    id: '36',
+  },
+  {
+    name: 'day 4',
+    id: '37',
+  },
+  {
+    name: 'day 5',
+    id: '38',
+  },
+  {
+    name: 'day 6',
+    id: '39',
+  },
+  {
+    name: 'day 7',
+    id: '40',
+  },
+];
 
 const Application: React.FC = () => {
-  const [counter, setCounter] = useState(0);
-  const [darkTheme, setDarkTheme] = useState(true);
-
-  /**
-   * On component mount
-   */
-  useEffect(() => {
-    const useDarkTheme = parseInt(localStorage.getItem('dark-mode'));
-    if (isNaN(useDarkTheme)) {
-      setDarkTheme(true);
-    } else if (useDarkTheme == 1) {
-      setDarkTheme(true);
-    } else if (useDarkTheme == 0) {
-      setDarkTheme(false);
-    }
-  }, []);
-
-  /**
-   * On Dark theme change
-   */
-  useEffect(() => {
-    if (darkTheme) {
-      localStorage.setItem('dark-mode', '1');
-      document.body.classList.add('dark-mode');
-    } else {
-      localStorage.setItem('dark-mode', '0');
-      document.body.classList.remove('dark-mode');
-    }
-  }, [darkTheme]);
-
-  /**
-   * Toggle Theme
-   */
-  function toggleTheme() {
-    setDarkTheme(!darkTheme);
-  }
-
+  // const dispatch = useDispatch();
   return (
-    <div id='erwt'>
-      <div className='header'>
-        <div className='main-heading'>
-          <h1 className='themed'>React Webpack Typescript</h1>
+    <>
+      <div id='container'>
+        <div className='header'>
+          <h1 className='main-title'>Dear Diary</h1>
         </div>
-        <div className='main-teaser'>
-          <div>
-            Robust boilerplate for Desktop Applications with Electron and
-            ReactJS. Hot Reloading is used in this project for fast development
-            experience.
-            <br />
-            If you think the project is useful enough, just spread the word
-            around!
-          </div>
-        </div>
-        <div className='versions'>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.erwt} /> ERWT
-            </div>
-          </div>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.typescript} /> Typescript
-            </div>
-          </div>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.react} /> React
-            </div>
-          </div>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.webpack} /> Webpack
-            </div>
-          </div>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.chrome} /> Chrome
-            </div>
-          </div>
-          <div className='item'>
-            <div>
-              <img className='item-icon' src={icons.license} /> License
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className='footer'>
-        <div className='center'>
-          <button
-            onClick={() => {
-              if (counter > 99) return alert('Going too high!!');
-              setCounter(counter + 1);
-            }}
-          >
-            Increment {counter != 0 ? counter : ''} <span>{counter}</span>
-          </button>
-          &nbsp;&nbsp; &nbsp;&nbsp;
-          <button
-            onClick={() => {
-              if (counter == 0) return alert('Oops.. thats not possible!');
-              setCounter(counter > 0 ? counter - 1 : 0);
-            }}
-          >
-            Decrement <span>{counter}</span>
-          </button>
-          &nbsp;&nbsp; &nbsp;&nbsp;
-          <button onClick={toggleTheme}>
-            {darkTheme ? 'Light Theme' : 'Dark Theme'}
-          </button>
+        <div className='main-container'>
+          <Sidebar />
+          <div className='main-card-container'>
+            <Card createNote={true} id={''} />
+            {day.map((note) => {
+              return (
+                <Card
+                  key={note.id}
+                  name={note.name}
+                  id={note.id}
+                  createNote={false}
+                />
+              );
+            })}
+          </div>
         </div>
+        <div className='footer'></div>
       </div>
-    </div>
+    </>
   );
 };
 
