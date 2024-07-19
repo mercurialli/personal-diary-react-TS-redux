@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import store from './services/store';
 
 // Application to Render
-{
-  /* <Provider store={store}></Provider>; */
-}
-const app = <Application />;
+const app = (
+  <Provider store={store}>
+    <Application />
+  </Provider>
+);
 
 // Render application in DOM
 createRoot(document.getElementById('app')).render(app);

@@ -42,7 +42,6 @@ const Application: React.FC = () => {
         <div className='header'>
           <h1 className='main-title'>Dear Diary</h1>
         </div>
-
         <div className='main-container'>
           <Sidebar />
           <div className='main-card-container'>

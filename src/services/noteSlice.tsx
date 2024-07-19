@@ -3,17 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const noteSlice = createSlice({
   name: 'notes',
   initialState: {
-    notes: [],
+    notes: ['1', '2'],
   },
   reducers: {
     addNote(state, action) {
-      state.notes.push({
-        // id: uniqueId,
-        // name: action.payload.,
-        // text: action.payload.text,
-      });
+      state.notes = [...state.notes, '3'];
     },
-    removeNote(state, action) {},
+    removeNote(state, action) {
+      state.notes = [];
+    },
   },
 });
 
