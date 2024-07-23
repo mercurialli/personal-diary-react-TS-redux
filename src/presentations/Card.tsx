@@ -1,7 +1,9 @@
 import React from 'react';
 import './Card.scss';
 import imgPlus from '../components/assets/icons/plus.svg';
-
+import { ModalUi } from './Modal/Modal';
+import { isOpenModal } from '@src/services/modalSlice';
+import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   id: string;
   name?: string;
@@ -14,13 +16,21 @@ export function Card({
   createNote,
   ...props
 }: ICardProps) {
+  const isOpen = useAppSelector((state) => state.modal.isOpen);
+
+  const dispatch = useAppDispatch();
+
   return (
     <>
       {createNote ? (
         <div className='add-card'>
-          <button className='addNotes'>
+          <button
+            className='addNotes'
+            onClick={() => dispatch(isOpenModal(true))}
+          >
             <img src={imgPlus} alt='plus icon' />
           </button>
+          {isOpen && <ModalUi />}
         </div>
       ) : (
         <div className='card-container'>

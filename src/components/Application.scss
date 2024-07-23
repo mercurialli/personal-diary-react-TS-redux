@@ -40,3 +40,21 @@
   background-color: white;
   overflow: hidden;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--header-accent-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: 5px;
+  border: var(--header-accent-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(244, 232, 139);
+}
