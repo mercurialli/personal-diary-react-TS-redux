@@ -2,9 +2,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Application from './components/Application';
 import { Provider } from 'react-redux';
-import store from './services/store';
+import { store } from './services/store';
 
 // Application to Render
+
 const app = (
   <Provider store={store}>
     <Application />
