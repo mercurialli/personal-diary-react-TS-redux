@@ -8,18 +8,18 @@ import { INote } from '../../components/types/types';
 
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   createNote: boolean;
-  id?: string;
   title?: string;
   date?: string;
   description?: string;
+  id?: string;
 }
 
 export function Card({
-  id,
   title = 'интересный день',
   createNote,
   date,
   description,
+  id = '',
   ...props
 }: ICardProps) {
   const isOpen = useAppSelector((state) => state.modal.isOpen);

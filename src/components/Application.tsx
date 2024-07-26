@@ -47,19 +47,21 @@ const Application: React.FC = () => {
         <div className='main-container'>
           <Sidebar />
           <div className='main-card-container'>
-            <Card createNote={true} id={''} />
-            {notes.map((note) => {
-              return (
-                <Card
-                  key={note.id}
-                  title={note.title}
-                  date={note.date}
-                  description={note.description}
-                  id={note.id}
-                  createNote={false}
-                />
-              );
-            })}
+            <Card createNote={true} />
+            {notes
+              ? notes.map((note) => {
+                  return (
+                    <Card
+                      key={note.id}
+                      title={note.title}
+                      date={note.date}
+                      description={note.description}
+                      id={note.id}
+                      createNote={false}
+                    />
+                  );
+                })
+              : ''}
           </div>
         </div>
         <div className='footer'></div>

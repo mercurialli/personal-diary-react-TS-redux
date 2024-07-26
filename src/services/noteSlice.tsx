@@ -3,16 +3,12 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import { INote } from '@src/components/types/types';
 
-const initialState = {
-  notes: [
-    {
-      title: 'title',
-      description: 'description',
-      id: 'id',
-      date: 'date',
-    },
-    { title: 'title2', description: 'description2', id: 'id2', date: 'date2' },
-  ],
+interface IState {
+  notes: INote[];
+}
+
+const initialState: IState = {
+  notes: [],
 };
 
 const noteSlice = createSlice({
