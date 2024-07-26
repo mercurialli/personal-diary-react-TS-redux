@@ -4,37 +4,6 @@ import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
 import { Card } from '@src/presentations/Card/Card';
 import { useAppSelector } from '@src/services/hooks';
 
-const day = [
-  {
-    name: 'day 1 gdfge rgegerge',
-    id: '8',
-  },
-  {
-    name: 'day 2',
-    id: '35',
-  },
-  {
-    name: 'day 3',
-    id: '36',
-  },
-  {
-    name: 'day 4',
-    id: '37',
-  },
-  {
-    name: 'day 5',
-    id: '38',
-  },
-  {
-    name: 'day 6',
-    id: '39',
-  },
-  {
-    name: 'day 7',
-    id: '40',
-  },
-];
-
 const Application: React.FC = () => {
   // const dispatch = useDispatch();
   const notes = useAppSelector((state) => state.notes.notes);
