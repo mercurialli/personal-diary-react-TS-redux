@@ -1,7 +1,8 @@
 import React from 'react';
 import './Application.scss';
-import { Card } from '@src/presentations/Card';
 import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
+import { Card } from '@src/presentations/Card/Card';
+import { useAppSelector } from '@src/services/hooks';
 
 const day = [
   {
@@ -36,6 +37,7 @@ const day = [
 
 const Application: React.FC = () => {
   // const dispatch = useDispatch();
+  const notes = useAppSelector((state) => state.notes.notes);
   return (
     <>
       <div id='container'>
@@ -46,11 +48,13 @@ const Application: React.FC = () => {
           <Sidebar />
           <div className='main-card-container'>
             <Card createNote={true} id={''} />
-            {day.map((note) => {
+            {notes.map((note) => {
               return (
                 <Card
                   key={note.id}
-                  name={note.name}
+                  title={note.title}
+                  date={note.date}
+                  description={note.description}
                   id={note.id}
                   createNote={false}
                 />
