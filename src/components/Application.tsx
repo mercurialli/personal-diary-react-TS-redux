@@ -2,10 +2,11 @@ import React from 'react';
 import './Application.scss';
 import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
 import { Card } from '@src/presentations/Card/Card';
-import { useAppSelector } from '@src/services/hooks';
+import { useAppDispatch, useAppSelector } from '@src/services/hooks';
+import { isOpenModal } from '@src/services/modalSlice';
 
 const Application: React.FC = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const notes = useAppSelector((state) => state.notes.notes);
   return (
     <>
@@ -16,7 +17,10 @@ const Application: React.FC = () => {
         <div className='main-container'>
           <Sidebar />
           <div className='main-card-container'>
-            <Card createNote={true} />
+            <Card
+              createNote={true}
+              onClick={() => dispatch(isOpenModal(true))}
+            />
             {notes
               ? notes.map((note) => {
                   return (

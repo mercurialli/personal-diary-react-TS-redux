@@ -42,12 +42,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   background-color: var(--card-accent-color);
   position: relative;
   cursor: pointer;
   border-radius: 5%;
+  transition: all 0.3s ease-out;
+  transition-delay: 0.1s;
+  z-index: 1;
+}
+
+.add-card:hover {
+  width: 50%;
+  height: 50%;
 }
 
 .addNotes {
