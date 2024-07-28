@@ -1,41 +1,13 @@
 import React from 'react';
 import './Application.scss';
-import { Card } from '@src/presentations/Card';
 import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
-
-const day = [
-  {
-    name: 'day 1 gdfge rgegerge',
-    id: '8',
-  },
-  {
-    name: 'day 2',
-    id: '35',
-  },
-  {
-    name: 'day 3',
-    id: '36',
-  },
-  {
-    name: 'day 4',
-    id: '37',
-  },
-  {
-    name: 'day 5',
-    id: '38',
-  },
-  {
-    name: 'day 6',
-    id: '39',
-  },
-  {
-    name: 'day 7',
-    id: '40',
-  },
-];
+import { Card } from '@src/presentations/Card/Card';
+import { useAppDispatch, useAppSelector } from '@src/services/hooks';
+import { isOpenModal } from '@src/services/modalSlice';
 
 const Application: React.FC = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const notes = useAppSelector((state) => state.notes.notes);
   return (
     <>
       <div id='container'>
@@ -45,17 +17,24 @@ const Application: React.FC = () => {
         <div className='main-container'>
           <Sidebar />
           <div className='main-card-container'>
-            <Card createNote={true} id={''} />
-            {day.map((note) => {
-              return (
-                <Card
-                  key={note.id}
-                  name={note.name}
-                  id={note.id}
-                  createNote={false}
-                />
-              );
-            })}
+            <Card
+              createNote={true}
+              onClick={() => dispatch(isOpenModal(true))}
+            />
+            {notes
+              ? notes.map((note) => {
+                  return (
+                    <Card
+                      key={note.id}
+                      title={note.title}
+                      date={note.date}
+                      description={note.description}
+                      id={note.id}
+                      createNote={false}
+                    />
+                  );
+                })
+              : ''}
           </div>
         </div>
         <div className='footer'></div>

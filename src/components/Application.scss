@@ -17,6 +17,9 @@
   justify-content: space-around;
   align-items: center;
   background-color: var(--header-accent-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .main-title {
@@ -27,6 +30,7 @@
 
 .main-container {
   display: flex;
+  // margin-top: 160px;
 }
 
 .main-card-container {

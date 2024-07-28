@@ -5,6 +5,7 @@ import { RootState } from './store';
 const initialState = {
   isOpen: false,
 };
+
 const modalSlice = createSlice({
   name: 'modal',
   initialState,
