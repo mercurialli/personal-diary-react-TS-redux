@@ -2,27 +2,32 @@ import { ConfigProvider } from 'antd';
 import { DatePicker as AntDatePicker } from 'antd';
 import { Control, Controller, useFormContext } from 'react-hook-form';
 import type { DatePickerProps } from 'antd';
-import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React from 'react';
 import { IForm } from '../Form/Form';
 import ruRU from 'antd/es/locale/ru_RU';
-
-const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {
-  console.log(date, dateString);
-};
-
-export function DatePicker() {
-  const { control } = useFormContext<IForm>();
+interface RHFDatePicker {
+  control: Control<any>;
+  name: string;
+}
+export function DatePicker(props: RHFDatePicker) {
   return (
     <ConfigProvider locale={ruRU}>
       <Controller
-        name='datepicker'
-        control={control}
+        name={props.name}
+        control={props.control}
         rules={{ required: true }}
-        render={({ field: { onChange } }) => (
+        render={({ field, fieldState }) => (
           <AntDatePicker
+            status={fieldState.error ? 'error' : undefined}
+            ref={field.ref}
+            name={field.name}
+            onBlur={field.onBlur}
+            value={field.value ? dayjs(field.value) : null}
             className='form-datepicker'
-            onChange={onChange}
+            onChange={(date) => {
+              field.onChange(date ? date.valueOf() : null);
+            }}
             needConfirm
           />
         )}

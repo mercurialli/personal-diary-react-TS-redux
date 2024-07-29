@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './Card.scss';
 import imgPlus from '@src/components/assets/icons/plus.svg';
 import { isOpenModal } from '@src/services/modalSlice';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { ModalUi } from '../Modal/Modal';
-import { INote } from '../../components/types/types';
+import { DeleteOutlined } from '@ant-design/icons';
+import { removeNote } from '@src/services/noteSlice';
 
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   createNote: boolean;
@@ -26,6 +27,12 @@ export function Card({
   const notes = useAppSelector((state) => state.notes.notes);
   const dispatch = useAppDispatch();
 
+  console.log(id);
+
+  const handleClick = useCallback(() => {
+    dispatch(removeNote(id));
+  }, [dispatch]);
+
   return (
     <>
       {createNote ? (
@@ -40,6 +47,9 @@ export function Card({
         </div>
       ) : (
         <div className='card-container'>
+          <button className='btn-delete' onClick={handleClick}>
+            <DeleteOutlined />
+          </button>
           <img className='card-image'></img>
           <div className='card-title'>{title}</div>
         </div>
