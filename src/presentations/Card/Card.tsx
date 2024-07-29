@@ -27,12 +27,6 @@ export function Card({
   const notes = useAppSelector((state) => state.notes.notes);
   const dispatch = useAppDispatch();
 
-  console.log('ok', notes);
-
-  // const deleteNote = useCallback(() => {
-  //   dispatch(removeNote(id));
-  // }, [dispatch]);
-
   const deleteNote = (id: string) => {
     dispatch(removeNote(id));
   };
