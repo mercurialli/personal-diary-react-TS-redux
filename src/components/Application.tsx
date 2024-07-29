@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Application.scss';
 import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
 import { Card } from '@src/presentations/Card/Card';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { isOpenModal } from '@src/services/modalSlice';
+import { v4 as uniqueId } from 'uuid';
 
 const Application: React.FC = () => {
   const dispatch = useAppDispatch();
   const notes = useAppSelector((state) => state.notes.notes);
+
   return (
     <>
       <div id='container'>
