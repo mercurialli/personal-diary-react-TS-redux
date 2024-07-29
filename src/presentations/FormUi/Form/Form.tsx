@@ -27,10 +27,6 @@ export const FormUI: React.FC = () => {
   const methods = useForm();
   const isOpen = useAppSelector((state) => state.modal.isOpen);
 
-  const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
-  };
-
   const submit: SubmitHandler<INote> = (data) => {
     console.log(data);
     dispatch(addNote(data));
