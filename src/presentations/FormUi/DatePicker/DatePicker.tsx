@@ -1,13 +1,11 @@
 import { ConfigProvider } from 'antd';
 import { DatePicker as AntDatePicker } from 'antd';
 import { Control, Controller, useFormContext } from 'react-hook-form';
-import type { DatePickerProps } from 'antd';
 import dayjs from 'dayjs';
 import React from 'react';
-import { IForm } from '../Form/Form';
 import ruRU from 'antd/es/locale/ru_RU';
 interface RHFDatePicker {
-  control: Control<any>;
+  control: Control;
   name: string;
 }
 export function DatePicker(props: RHFDatePicker) {
