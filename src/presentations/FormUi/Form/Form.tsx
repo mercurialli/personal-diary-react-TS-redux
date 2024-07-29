@@ -13,8 +13,6 @@ import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { addNote } from '@src/services/noteSlice';
 import { INote } from '@src/components/types/types';
 import { isOpenModal } from '@src/services/modalSlice';
-import type { DatePickerProps } from 'antd';
-import type { Dayjs } from 'dayjs';
 
 export interface IForm {
   title: string;
