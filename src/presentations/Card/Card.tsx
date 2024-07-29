@@ -27,11 +27,15 @@ export function Card({
   const notes = useAppSelector((state) => state.notes.notes);
   const dispatch = useAppDispatch();
 
-  console.log(id);
+  console.log('ok', notes);
 
-  const handleClick = useCallback(() => {
+  // const deleteNote = useCallback(() => {
+  //   dispatch(removeNote(id));
+  // }, [dispatch]);
+
+  const deleteNote = (id: string) => {
     dispatch(removeNote(id));
-  }, [dispatch]);
+  };
 
   return (
     <>
@@ -47,7 +51,7 @@ export function Card({
         </div>
       ) : (
         <div className='card-container'>
-          <button className='btn-delete' onClick={handleClick}>
+          <button className='btn-delete' onClick={() => deleteNote(id)}>
             <DeleteOutlined />
           </button>
           <img className='card-image'></img>

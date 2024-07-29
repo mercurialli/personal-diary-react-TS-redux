@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import { INote } from '@src/components/types/types';
+import { v4 as uniqueId } from 'uuid';
 
 interface IState {
   notes: INote[];
@@ -16,6 +17,7 @@ const noteSlice = createSlice({
   initialState,
   reducers: {
     addNote(state, action: PayloadAction<INote>) {
+      action.payload.id = uniqueId();
       state.notes = [...state.notes, action.payload];
     },
     removeNote(state, action: PayloadAction<string>) {

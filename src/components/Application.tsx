@@ -9,7 +9,7 @@ import { v4 as uniqueId } from 'uuid';
 const Application: React.FC = () => {
   const dispatch = useAppDispatch();
   const notes = useAppSelector((state) => state.notes.notes);
-  const uniqueIdRef = useRef(uniqueId());
+
   return (
     <>
       <div id='container'>
@@ -27,11 +27,11 @@ const Application: React.FC = () => {
               ? notes.map((note) => {
                   return (
                     <Card
-                      key={uniqueIdRef.current}
+                      key={note.id}
                       title={note.title}
                       date={note.date}
                       description={note.description}
-                      id={uniqueId().toString()}
+                      id={note.id}
                       createNote={false}
                     />
                   );
