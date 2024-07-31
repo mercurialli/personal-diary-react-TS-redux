@@ -10,11 +10,11 @@
   margin: 0;
 }
 
-.main-container {
+.mainContainer {
   display: flex;
 }
 
-.main-card-container {
+.mainCardContainer {
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

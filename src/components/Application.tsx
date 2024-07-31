@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import './Application.scss';
+import styles from './Application.module.scss';
 import { Card } from '@src/presentations/Card/Card';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { isOpenModal } from '@src/services/modalSlice';
@@ -13,9 +13,9 @@ const Application: React.FC = () => {
   return (
     <div id='container'>
       <Header />
-      <div className='main-container'>
+      <div className={styles.mainContainer}>
         <Sidebar />
-        <div className='main-card-container'>
+        <div className={styles.mainCardContainer}>
           <Card createNote={true} onClick={() => dispatch(isOpenModal(true))} />
           {notes
             ? notes.map((note) => {

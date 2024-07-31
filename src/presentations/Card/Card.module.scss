@@ -1,6 +1,6 @@
 @import '@src/components/global.scss';
 
-.card-container {
+.cardContainer {
   display: flex;
   flex-direction: row-reverse;
   width: 80%;
@@ -11,7 +11,7 @@
   cursor: pointer;
   border-radius: 5%;
 
-  & .card-title {
+  & .cardTitle {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -29,16 +29,16 @@
     z-index: 2;
   }
 
-  &:hover .card-title {
+  &:hover .cardTitle {
     transform: translateY(0%);
   }
 }
 
-.card-image {
+.cardImage {
   object-fit: cover;
 }
 
-.add-card {
+.addCard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +53,7 @@
   z-index: 1;
 }
 
-.add-card:hover {
+.addCard:hover {
   width: 50%;
   height: 50%;
 }
@@ -65,7 +65,7 @@
   cursor: pointer;
 }
 
-.btn-delete {
+.btnDelete {
   width: 40px;
   height: 40px;
   border: transparent;
@@ -75,6 +75,6 @@
   margin: 10px;
 }
 
-.btn-delete:hover {
+.btnDelete:hover {
   background-color: var(--card-title-text);
 }

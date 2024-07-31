@@ -2,7 +2,7 @@ import { Input as AntInput } from 'antd';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { IForm } from '../Form/Form';
-import './Input.scss';
+import styles from './Input.module.scss';
 
 export function Input() {
   const { control } = useFormContext<IForm>();
@@ -12,7 +12,11 @@ export function Input() {
       control={control}
       rules={{ required: true }}
       render={({ field }) => (
-        <AntInput className='form-input' {...field} placeholder='Название' />
+        <AntInput
+          className={styles.formInput}
+          {...field}
+          placeholder='Название'
+        />
       )}
     />
   );

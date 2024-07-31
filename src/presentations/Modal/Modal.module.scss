@@ -1,5 +1,5 @@
 @import '../../components/global.scss';
-.btn-save {
+.btnSave {
   background-color: var(--card-title-text);
   box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
   &:hover {
@@ -7,7 +7,7 @@
   }
 }
 
-.btn-cancel {
+.btnCancel {
   color: var(--card-title-text);
   box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
   &:hover {

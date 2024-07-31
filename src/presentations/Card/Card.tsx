@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import './Card.scss';
+import styles from './Card.module.scss';
 import imgPlus from '@src/components/assets/icons/plus.svg';
 import { isOpenModal } from '@src/services/modalSlice';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
@@ -34,9 +34,9 @@ export function Card({
   return (
     <>
       {createNote ? (
-        <div className='add-card'>
+        <div className={styles.addCard}>
           <button
-            className='addNotes'
+            className={styles.addNotes}
             onClick={() => dispatch(isOpenModal(true))}
           >
             <img src={imgPlus} alt='plus icon' />
@@ -44,12 +44,12 @@ export function Card({
           {isOpen && <ModalUi />}
         </div>
       ) : (
-        <div className='card-container'>
-          <button className='btn-delete' onClick={() => deleteNote(id)}>
+        <div className={styles.cardContainer}>
+          <button className={styles.btnDelete} onClick={() => deleteNote(id)}>
             <DeleteOutlined />
           </button>
-          <img className='card-image'></img>
-          <div className='card-title'>{title}</div>
+          <img className={styles.cardImage}></img>
+          <div className={styles.cardTitle}>{title}</div>
         </div>
       )}
     </>
