@@ -1,6 +1,6 @@
 import React from 'react';
-import './Sidebar.scss';
+import styles from './Sidebar.module.scss';
 
 export function Sidebar() {
-  return <aside className='sidebar'>Sidebar</aside>;
+  return <aside className={styles.sidebar}>Sidebar</aside>;
 }
