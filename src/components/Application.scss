@@ -10,27 +10,8 @@
   margin: 0;
 }
 
-.header {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--header-accent-color);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.main-title {
-  color: var(--text-color);
-  font-size: 5rem;
-  font-weight: 300;
-}
-
 .main-container {
   display: flex;
-  // margin-top: 160px;
 }
 
 .main-card-container {
