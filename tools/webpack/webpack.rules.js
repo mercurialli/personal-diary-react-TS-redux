@@ -22,21 +22,38 @@ module.exports = [
     ],
   },
   {
-    // SCSS (SASS) Loader
-    test: /\.s[ac]ss$/i,
+    // SCSS (SASS) modules Loader
+    test: /\.module\.s[ac]ss$/,
     use: [
       { loader: inDev() ? 'style-loader' : MiniCssExtractPlugin.loader },
-      { loader: 'css-loader' },
-      { loader: 'sass-loader' },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          sourceMap: inDev()
+        }
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: inDev()
+        }
+      },
     ],
   },
   {
-    // Less loader
-    test: /\.less$/,
+    // SCSS (SASS) Loader
+    test: /\.s[ac]ss$/,
+    exclude: /\.module\.s[ac]ss$/,
     use: [
       { loader: inDev() ? 'style-loader' : MiniCssExtractPlugin.loader },
       { loader: 'css-loader' },
-      { loader: 'less-loader' },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: inDev()
+        }
+      },
     ],
   },
   {
