@@ -1,10 +1,17 @@
-:global {
-  .ant-modal-title {
-    color: red;
+@import '../../components/global.scss';
+.btn-save {
+  background-color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  &:hover {
+    background-color: var(--text-color) !important;
   }
+}
 
-  .ant-btn ant-btn-default {
-  }
-  .ant-btn ant-btn-primary {
+.btn-cancel {
+  color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  &:hover {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
   }
 }

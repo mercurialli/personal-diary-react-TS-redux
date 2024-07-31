@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { addNote } from '@src/services/noteSlice';
 import { INote } from '@src/components/types/types';
 import { isOpenModal } from '@src/services/modalSlice';
+import './Form.scss';
 
 export interface IForm {
   title: string;
@@ -37,10 +38,8 @@ export const FormUI: React.FC = () => {
         className='modal-form'
         onSubmit={methods.handleSubmit(submit)}
       >
-        <div className='modal-form-container'>
-          <Input />
-          <DatePicker control={methods.control} name={'date'} />
-        </div>
+        <Input />
+        <DatePicker control={methods.control} name={'date'} />
         <TextField />
       </form>
     </FormProvider>

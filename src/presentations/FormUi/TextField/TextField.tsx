@@ -2,6 +2,7 @@ import { Input } from 'antd';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { IForm } from '../Form/Form';
+import './TextField.scss';
 
 const { TextArea } = Input;
 export function TextField() {

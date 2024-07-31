@@ -20,10 +20,16 @@ export const ModalUi: React.FC = () => {
         open={isOpen}
         onCancel={handleCancel}
         footer={[
-          <Button type='primary' form='myForm' key='submit' htmlType='submit'>
+          <Button
+            className='btn-save'
+            type='primary'
+            form='myForm'
+            key='submit'
+            htmlType='submit'
+          >
             Сохранить
           </Button>,
-          <Button key='cancel' onClick={handleCancel}>
+          <Button className='btn-cancel' key='cancel' onClick={handleCancel}>
             Отмена
           </Button>,
         ]}
