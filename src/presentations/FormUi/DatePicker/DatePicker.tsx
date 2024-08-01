@@ -9,6 +9,7 @@ interface RHFDatePicker {
   control: Control;
   name: string;
 }
+
 export function DatePicker(props: RHFDatePicker) {
   return (
     <ConfigProvider locale={ruRU}>
@@ -24,6 +25,7 @@ export function DatePicker(props: RHFDatePicker) {
             onBlur={field.onBlur}
             value={field.value ? dayjs(field.value) : null}
             className={styles.formDatepicker}
+            popupClassName={styles.antCalender}
             onChange={(date) => {
               field.onChange(date ? date.valueOf() : null);
             }}

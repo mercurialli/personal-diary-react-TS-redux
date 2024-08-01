@@ -17,3 +17,14 @@
     border-color: var(--text-color) !important;
   }
 }
+
+.modal {
+  border-radius: 5%;
+  padding: 1rem;
+  background-color: rgba(246, 158, 158, 0.5);
+  top: 50px;
+}
+
+.modalTitle {
+  color: var(--card-title-text);
+}

@@ -11,7 +11,7 @@ const Application: React.FC = () => {
   const notes = useAppSelector((state) => state.notes.notes);
 
   return (
-    <div id='container'>
+    <div className={styles.wrapper} id='container'>
       <Header />
       <div className={styles.mainContainer}>
         <Sidebar />

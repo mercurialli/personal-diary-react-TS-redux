@@ -11,12 +11,14 @@ export const ModalUi: React.FC = () => {
   const handleCancel = () => {
     dispatch(isOpenModal(false));
   };
-
+  const title = (
+    <h3 className={styles.modalTitle}> Расскажите о своем дне :) </h3>
+  );
   return (
     <>
       <Modal
-        className='modal'
-        title='Расскажите о своем дне'
+        className={styles.modal}
+        title={title}
         open={isOpen}
         onCancel={handleCancel}
         footer={[

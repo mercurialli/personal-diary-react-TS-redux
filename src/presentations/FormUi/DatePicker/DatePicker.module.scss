@@ -2,11 +2,25 @@
 .formDatepicker {
   grid-row: 1/2;
   grid-column: 2/3;
+
   &:hover {
     border-color: var(--card-title-text);
   }
+
   &:focus {
     border-color: var(--card-title-text) !important;
-    box-shadow: 0 0 0 2px rgba(255, 201, 201, 0.3);
+    box-shadow: 0 0 0 2px rgba(255, 201, 201, 0.3) !important;
+  }
+
+  &:active {
+    border-color: var(--card-title-text) !important;
+    box-shadow: 0 0 0 2px rgba(255, 201, 201, 0.3) !important;
   }
 }
+
+// .antCalender {
+//   color: var(--card-title-text);
+//   .ant-picker.ant-picker-calender {
+//     color: var(--card-title-text) !important;
+//   }
+// }

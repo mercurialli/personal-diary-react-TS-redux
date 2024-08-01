@@ -34,9 +34,9 @@ export function Card({
   return (
     <>
       {createNote ? (
-        <div className={styles.addCard}>
+        <div className={styles.cardContainerAdd}>
           <button
-            className={styles.addNotes}
+            className={styles.btnAddNotes}
             onClick={() => dispatch(isOpenModal(true))}
           >
             <img src={imgPlus} alt='plus icon' />
