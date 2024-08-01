@@ -13,7 +13,7 @@ export function TextField() {
       control={control}
       rules={{ required: true }}
       render={({ field }) => (
-        <TextArea className={styles.formTextfield} {...field} />
+        <TextArea className={styles.formTextfield} {...field} rows={10} />
       )}
     />
   );

@@ -16,7 +16,7 @@ export const ModalUi: React.FC = () => {
     <>
       <Modal
         className='modal'
-        title='Расскажи о своем дне'
+        title='Расскажите о своем дне'
         open={isOpen}
         onCancel={handleCancel}
         footer={[
