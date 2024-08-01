@@ -1,0 +1,30 @@
+@import '../../components/global.scss';
+.btnSave {
+  background-color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  margin-top: 1rem;
+  &:hover {
+    background-color: var(--text-color) !important;
+  }
+}
+
+.btnCancel {
+  color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  margin-top: 1rem;
+  &:hover {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+  }
+}
+
+.modal {
+  border-radius: 5%;
+  padding: 1rem;
+  background-color: rgba(246, 158, 158, 0.5);
+  top: 50px;
+}
+
+.modalTitle {
+  color: var(--card-title-text);
+}

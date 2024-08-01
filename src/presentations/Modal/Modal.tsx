@@ -3,7 +3,7 @@ import { Button, Modal } from 'antd';
 import { isOpenModal } from '@src/services/modalSlice';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { FormUI } from '../FormUi/Form/Form';
-import './Modal.scss';
+import styles from './Modal.module.scss';
 
 export const ModalUi: React.FC = () => {
   const isOpen = useAppSelector((state) => state.modal.isOpen);
@@ -11,19 +11,31 @@ export const ModalUi: React.FC = () => {
   const handleCancel = () => {
     dispatch(isOpenModal(false));
   };
-
+  const title = (
+    <h3 className={styles.modalTitle}> Расскажите о своем дне :) </h3>
+  );
   return (
     <>
       <Modal
-        className='modal'
-        title='Расскажи о своем дне'
+        className={styles.modal}
+        title={title}
         open={isOpen}
         onCancel={handleCancel}
         footer={[
-          <Button type='primary' form='myForm' key='submit' htmlType='submit'>
+          <Button
+            className={styles.btnSave}
+            type='primary'
+            form='myForm'
+            key='submit'
+            htmlType='submit'
+          >
             Сохранить
           </Button>,
-          <Button key='cancel' onClick={handleCancel}>
+          <Button
+            className={styles.btnCancel}
+            key='cancel'
+            onClick={handleCancel}
+          >
             Отмена
           </Button>,
         ]}

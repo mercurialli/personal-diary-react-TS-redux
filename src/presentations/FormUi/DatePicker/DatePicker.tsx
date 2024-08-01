@@ -4,10 +4,12 @@ import { Control, Controller, useFormContext } from 'react-hook-form';
 import dayjs from 'dayjs';
 import React from 'react';
 import ruRU from 'antd/es/locale/ru_RU';
+import styles from './DatePicker.module.scss';
 interface RHFDatePicker {
   control: Control;
   name: string;
 }
+
 export function DatePicker(props: RHFDatePicker) {
   return (
     <ConfigProvider locale={ruRU}>
@@ -22,7 +24,8 @@ export function DatePicker(props: RHFDatePicker) {
             name={field.name}
             onBlur={field.onBlur}
             value={field.value ? dayjs(field.value) : null}
-            className='form-datepicker'
+            className={styles.formDatepicker}
+            popupClassName={styles.antCalender}
             onChange={(date) => {
               field.onChange(date ? date.valueOf() : null);
             }}
