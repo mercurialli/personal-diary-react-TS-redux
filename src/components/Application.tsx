@@ -1,39 +1,35 @@
-import React, { useRef } from 'react';
-import styles from './Application.module.scss';
-import { Card } from '@src/presentations/Card/Card';
-import { useAppDispatch, useAppSelector } from '@src/services/hooks';
-import { isOpenModal } from '@src/services/modalSlice';
-import { Sidebar } from '@src/presentations/Sidebar/Sidebar';
-import { Header } from '@src/presentations/Header/Header';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from '@src/pages/Layout';
+import ErrorPage from '@src/pages/ErrorPage';
+import ViewNote from '@src/pages/ViewNote';
+import HomePage from '@src/pages/HomePage';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: 'view/:id',
+        element: <ViewNote />,
+        errorElement: <ErrorPage />,
+      },
+    ],
+  },
+]);
 
 const Application: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const notes = useAppSelector((state) => state.notes.notes);
-
   return (
-    <div className={styles.wrapper} id='container'>
-      <Header />
-      <div className={styles.mainContainer}>
-        <Sidebar />
-        <div className={styles.mainCardContainer}>
-          <Card createNote={true} onClick={() => dispatch(isOpenModal(true))} />
-          {notes
-            ? notes.map((note) => {
-                return (
-                  <Card
-                    key={note.id}
-                    title={note.title}
-                    date={note.date}
-                    description={note.description}
-                    id={note.id}
-                    createNote={false}
-                  />
-                );
-              })
-            : ''}
-        </div>
-      </div>
-    </div>
+    <>
+      <RouterProvider router={router}></RouterProvider>
+    </>
   );
 };
 
