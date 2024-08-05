@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: 'view/:id',
+        path: 'viewnote/:id',
         element: <ViewNote />,
         errorElement: <ErrorPage />,
       },

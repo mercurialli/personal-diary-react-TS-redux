@@ -1,0 +1,29 @@
+@import '../components/global.scss';
+
+.note {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 20% 80%;
+  gap: 2rem;
+  justify-items: center;
+  align-items: baseline;
+  width: 100%;
+}
+
+.noteTitle {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  color: var(--card-title-text);
+}
+
+.noteDate {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.noteDescription {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  font-size: larger;
+  line-height: 1.5;
+}
