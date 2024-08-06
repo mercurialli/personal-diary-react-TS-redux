@@ -14,14 +14,16 @@ const HomePage: React.FC = () => {
       {notes
         ? notes.map((note) => {
             return (
-              <Card
-                key={note.id}
-                title={note.title}
-                date={note.date}
-                description={note.description}
-                id={note.id}
-                createNote={false}
-              />
+              <>
+                <Card
+                  key={note.id}
+                  title={note.title}
+                  date={note.date}
+                  description={note.description}
+                  id={note.id}
+                  createNote={false}
+                />
+              </>
             );
           })
         : ''}

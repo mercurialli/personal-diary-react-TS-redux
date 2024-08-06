@@ -11,7 +11,9 @@
   background-color: white;
   overflow: hidden;
 }
-
+.link {
+  display: inline-block;
+}
 ::-webkit-scrollbar {
   width: 15px;
 }

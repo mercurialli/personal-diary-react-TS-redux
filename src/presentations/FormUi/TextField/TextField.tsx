@@ -1,15 +1,20 @@
 import { Input } from 'antd';
 import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Control, Controller, useFormContext } from 'react-hook-form';
 import { IForm } from '../Form/Form';
 import styles from './TextField.module.scss';
 
 const { TextArea } = Input;
-export function TextField() {
-  const { control } = useFormContext<IForm>();
+interface RHFInput {
+  control: Control;
+  name: string;
+}
+
+export function TextField(props: RHFInput) {
+  const { control } = useFormContext();
   return (
     <Controller
-      name='description'
+      name={props.name}
       control={control}
       rules={{ required: true }}
       render={({ field }) => (

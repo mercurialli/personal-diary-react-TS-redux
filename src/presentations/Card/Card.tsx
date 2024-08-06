@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { ModalUi } from '../Modal/Modal';
 import { DeleteOutlined } from '@ant-design/icons';
 import { removeNote } from '@src/services/noteSlice';
+import { Link, NavLink } from 'react-router-dom';
 
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   createNote: boolean;
@@ -48,7 +49,8 @@ export function Card({
           <button className={styles.btnDelete} onClick={() => deleteNote(id)}>
             <DeleteOutlined />
           </button>
-          <img className={styles.cardImage}></img>
+          <img className={styles.cardImage}></img>{' '}
+          <Link to={'/viewnote/' + id} className={styles.link}></Link>
           <div className={styles.cardTitle}>{title}</div>
         </div>
       )}

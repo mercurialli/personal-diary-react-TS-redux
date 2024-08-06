@@ -1,14 +1,19 @@
 import { Input as AntInput } from 'antd';
 import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Control, Controller, useFormContext } from 'react-hook-form';
 import { IForm } from '../Form/Form';
 import styles from './Input.module.scss';
 
-export function Input() {
-  const { control } = useFormContext<IForm>();
+interface RHFInput {
+  control: Control;
+  name: string;
+}
+
+export function Input(props: RHFInput) {
+  const { control } = useFormContext();
   return (
     <Controller
-      name='title'
+      name={props.name}
       control={control}
       rules={{ required: true }}
       render={({ field }) => (
