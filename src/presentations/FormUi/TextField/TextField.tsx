@@ -6,7 +6,7 @@ import styles from './TextField.module.scss';
 
 const { TextArea } = Input;
 interface RHFInput {
-  control: Control;
+  control: Control<any>;
   name: string;
 }
 

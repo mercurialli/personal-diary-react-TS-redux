@@ -5,7 +5,7 @@ import { IForm } from '../Form/Form';
 import styles from './Input.module.scss';
 
 interface RHFInput {
-  control: Control;
+  control: Control<any>;
   name: string;
 }
 
