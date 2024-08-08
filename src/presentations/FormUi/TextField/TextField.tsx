@@ -1,19 +1,33 @@
 import { Input } from 'antd';
 import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
-import { IForm } from '../Form/Form';
+import { Control, Controller, useFormContext } from 'react-hook-form';
 import styles from './TextField.module.scss';
+import classNames from 'classnames';
 
 const { TextArea } = Input;
-export function TextField() {
-  const { control } = useFormContext<IForm>();
+interface RHFInput {
+  control: Control<any>;
+  name: string;
+  value?: string;
+  isReadOnly?: boolean;
+  onChange?: any;
+}
+
+export function TextField(props: RHFInput) {
+  const { control } = useFormContext();
   return (
     <Controller
-      name='description'
+      name={props.name}
       control={control}
       rules={{ required: true }}
       render={({ field }) => (
-        <TextArea className={styles.formTextfield} {...field} rows={10} />
+        <TextArea
+          className={classNames(styles.formTextField, {
+            [styles.formTextField_readonly]: props.isReadOnly,
+          })}
+          {...field}
+          rows={10}
+        />
       )}
     />
   );

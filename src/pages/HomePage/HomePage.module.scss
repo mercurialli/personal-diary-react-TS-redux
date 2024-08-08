@@ -4,12 +4,18 @@
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+  grid-auto-rows: 200px;
   justify-items: center;
   align-items: center;
   margin: 0;
   background-color: white;
   overflow: hidden;
+}
+
+.link {
+  display: inline-block;
 }
 
 ::-webkit-scrollbar {

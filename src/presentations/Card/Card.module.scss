@@ -3,8 +3,8 @@
 .cardContainer {
   display: flex;
   flex-direction: row-reverse;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: var(--card-accent-color);
   position: relative;
@@ -42,8 +42,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   background-color: var(--card-accent-color);
   position: relative;
   cursor: pointer;
@@ -53,8 +53,8 @@
   z-index: 1;
 
   &:hover {
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
   }
 }
 
@@ -86,4 +86,13 @@
 
 .btnDelete:hover {
   background-color: var(--card-title-text);
+}
+
+.link {
+  display: block;
+  z-index: 8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
 }

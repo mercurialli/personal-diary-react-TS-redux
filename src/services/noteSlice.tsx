@@ -24,9 +24,18 @@ const noteSlice = createSlice({
       const itemId = action.payload;
       state.notes = state.notes.filter((note) => note.id !== itemId);
     },
+    editNote(state, action: PayloadAction<INote>) {
+      const updatedNote = state.notes.find(
+        (item) => item.id === action.payload.id,
+      );
+      updatedNote.title = action.payload.title;
+      updatedNote.date = action.payload.date;
+      updatedNote.description = action.payload.description;
+      updatedNote.id = action.payload.id;
+    },
   },
 });
 
-export const { addNote, removeNote } = noteSlice.actions;
+export const { addNote, removeNote, editNote } = noteSlice.actions;
 export const isNote = (state: RootState) => state.notes;
 export default noteSlice.reducer;
