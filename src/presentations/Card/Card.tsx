@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styles from './Card.module.scss';
 import imgPlus from '@src/components/assets/icons/plus.svg';
 import { isOpenModal } from '@src/services/modalSlice';
@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@src/services/hooks';
 import { ModalUi } from '../Modal/Modal';
 import { DeleteOutlined } from '@ant-design/icons';
 import { removeNote } from '@src/services/noteSlice';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface ICardProps extends React.HTMLAttributes<HTMLDivElement> {
   createNote: boolean;

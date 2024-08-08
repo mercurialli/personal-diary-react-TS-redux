@@ -3,10 +3,14 @@ import React from 'react';
 import { Control, Controller, useFormContext } from 'react-hook-form';
 import { IForm } from '../Form/Form';
 import styles from './Input.module.scss';
+import classNames from 'classnames';
 
 interface RHFInput {
   control: Control<any>;
   name: string;
+  value?: string;
+  isReadOnly?: boolean;
+  onChange?: any;
 }
 
 export function Input(props: RHFInput) {
@@ -18,7 +22,9 @@ export function Input(props: RHFInput) {
       rules={{ required: true }}
       render={({ field }) => (
         <AntInput
-          className={styles.formInput}
+          className={classNames(styles.formInput, {
+            [styles.formInput_readonly]: props.isReadOnly,
+          })}
           {...field}
           placeholder='Название'
         />

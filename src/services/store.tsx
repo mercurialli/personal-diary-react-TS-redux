@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import notesReducer from './noteSlice';
 import modalReducer from './modalSlice';
+
 import {
   persistStore,
   persistReducer,

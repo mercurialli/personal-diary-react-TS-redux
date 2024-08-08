@@ -3,7 +3,7 @@
 .formViewNote {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 8% 60%;
+  grid-template-rows: 8% 60% 8%;
   gap: 1rem;
   margin: 20px;
   width: 100vw;
@@ -11,4 +11,34 @@
   padding-left: 5rem;
   padding-right: 5rem;
   justify-items: end;
+}
+
+.formsBtns {
+  grid-column: 1/3;
+  grid-row: 3/4;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.btnEdit,
+.btnCancel {
+  color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  margin-top: 1rem;
+  &:hover {
+    color: var(--text-color) !important;
+    border-color: var(--text-color) !important;
+  }
+}
+
+.btnBack,
+.btnSave {
+  background-color: var(--card-title-text);
+  box-shadow: 0 2px 0 rgba(255, 201, 201, 0.3);
+  margin-top: 1rem;
+  &:hover {
+    background-color: var(--text-color) !important;
+  }
 }
