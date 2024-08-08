@@ -18,11 +18,6 @@ import { Button } from 'antd';
 import { INote } from '@src/components/types/types';
 import { editNote } from '@src/services/noteSlice';
 
-// const EDIT_NOTE = {
-//   IS_EDIT: true,
-//   WATCH: true,
-// };
-
 const ViewNote: React.FC = () => {
   const notes = useAppSelector((state) => state.notes.notes);
   const dispatch = useAppDispatch();
@@ -36,16 +31,11 @@ const ViewNote: React.FC = () => {
   const handleEdit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsEdit(true);
-    // EDIT_NOTE.WATCH = false;
-    // EDIT_NOTE.IS_EDIT = true;
   };
 
   const handleSave = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsEdit(false);
-    // EDIT_NOTE.IS_EDIT = false;
-    // EDIT_NOTE.WATCH = true;
-    // dispatch(editNote(chosenNote));
   };
 
   console.log('hey!!', chosenNote);
@@ -57,15 +47,17 @@ const ViewNote: React.FC = () => {
     },
   });
 
-  const submit: SubmitHandler<INote> = () => {
-    dispatch(editNote({ title, date, description, id }));
+  const submit: SubmitHandler<INote> = (data) => {
+    console.log(data);
+    dispatch(editNote({ ...data, id }));
+    setIsEdit(false);
   };
 
   return (
     <>
       <FormProvider {...methods}>
         <form
-          id={id}
+          id='editForm'
           className={styles.formViewNote}
           onSubmit={methods.handleSubmit(submit)}
         >
@@ -74,27 +66,27 @@ const ViewNote: React.FC = () => {
             name='title'
             value={chosenNote.title}
             isReadOnly={isEdit ? false : true}
-            onChange={(e: {
-              target: { value: React.SetStateAction<string> };
-            }) => setTitle(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setTitle(e.target.value)
+            }
           />
           <DatePicker
             control={methods.control}
             name='date'
             value={dayjs(chosenNote.date).format('DD/MM/YYYY')}
             isReadOnly={isEdit ? false : true}
-            onChange={(e: {
-              target: { value: React.SetStateAction<string> };
-            }) => setDate(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setDate(e.target.value)
+            }
           />
           <TextField
             control={methods.control}
             name='description'
             value={chosenNote.description}
             isReadOnly={isEdit ? false : true}
-            onChange={(e: {
-              target: { value: React.SetStateAction<string> };
-            }) => setDescription(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setDescription(e.target.value)
+            }
           />
           <div className={styles.formsBtns}>
             {isEdit ? (
@@ -107,12 +99,11 @@ const ViewNote: React.FC = () => {
                   Отмена
                 </Button>
                 <Button
-                  form={id}
+                  form='editForm'
                   key='submit'
                   htmlType='submit'
                   type='primary'
                   className={styles.btnSave}
-                  onClick={(e) => handleSave(e)}
                 >
                   Сохранить
                 </Button>

@@ -32,21 +32,6 @@ const noteSlice = createSlice({
       updatedNote.date = action.payload.date;
       updatedNote.description = action.payload.description;
       updatedNote.id = action.payload.id;
-
-      // Object.assign(updatedNote, {
-      //   title: action.payload.title,
-      //   date: action.payload.date,
-      //   description: action.payload.description,
-      //   id: action.payload.id,
-      // });
-
-      // state.notes = [...state.notes];
-
-      // const index = state.notes.findIndex(
-      //   (item) => item.id === action.payload.id,
-      // );
-      // const updatedState = [...state.notes];
-      // updatedState[index].title = action.payload.title;
     },
   },
 });
