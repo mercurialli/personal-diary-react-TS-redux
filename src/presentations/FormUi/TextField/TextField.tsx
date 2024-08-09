@@ -6,11 +6,8 @@ import classNames from 'classnames';
 
 const { TextArea } = Input;
 interface RHFInput {
-  control: Control<any>;
   name: string;
-  value?: string;
   isReadOnly?: boolean;
-  onChange?: any;
 }
 
 export function TextField(props: RHFInput) {

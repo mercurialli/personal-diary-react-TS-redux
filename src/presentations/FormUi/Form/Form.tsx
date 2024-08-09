@@ -39,9 +39,9 @@ export const FormUI: React.FC = () => {
         className={styles.modalForm}
         onSubmit={methods.handleSubmit(submit)}
       >
-        <Input control={methods.control} name={'title'} />
-        <DatePicker control={methods.control} name={'date'} value='' />
-        <TextField control={methods.control} name={'description'} />
+        <Input name={'title'} />
+        <DatePicker name={'date'} />
+        <TextField name={'description'} />
       </form>
     </FormProvider>
   );

@@ -6,11 +6,8 @@ import styles from './Input.module.scss';
 import classNames from 'classnames';
 
 interface RHFInput {
-  control: Control<any>;
   name: string;
-  value?: string;
   isReadOnly?: boolean;
-  onChange?: any;
 }
 
 export function Input(props: RHFInput) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ViewNote.module.scss';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '@src/services/hooks';
@@ -17,6 +17,8 @@ import { TextField } from '@src/presentations/FormUi/TextField/TextField';
 import { Button } from 'antd';
 import { INote } from '@src/components/types/types';
 import { editNote } from '@src/services/noteSlice';
+import { yupResolver } from '@hookform/resolvers/yup';
+import schema from './yup/schema';
 
 const ViewNote: React.FC = () => {
   const notes = useAppSelector((state) => state.notes.notes);
@@ -24,27 +26,27 @@ const ViewNote: React.FC = () => {
   const { id } = useParams();
   const chosenNote = notes.find((note) => note.id === id);
   const [isEdit, setIsEdit] = useState(false);
-  const [title, setTitle] = useState(chosenNote.title);
-  const [date, setDate] = useState(chosenNote.date);
-  const [description, setDescription] = useState(chosenNote.description);
 
   const handleEdit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsEdit(true);
   };
 
-  const handleSave = (e: { preventDefault: () => void }) => {
+  function handleCancel(e: { preventDefault: () => void }) {
     e.preventDefault();
+    dispatch(editNote(chosenNote));
     setIsEdit(false);
-  };
+  }
 
   console.log('hey!!', chosenNote);
+
   const methods = useForm({
     defaultValues: {
       title: chosenNote.title,
       date: chosenNote.date,
       description: chosenNote.description,
     },
+    resolver: yupResolver(schema),
   });
 
   const submit: SubmitHandler<INote> = (data) => {
@@ -61,40 +63,16 @@ const ViewNote: React.FC = () => {
           className={styles.formViewNote}
           onSubmit={methods.handleSubmit(submit)}
         >
-          <Input
-            control={methods.control}
-            name='title'
-            value={chosenNote.title}
-            isReadOnly={isEdit ? false : true}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setTitle(e.target.value)
-            }
-          />
-          <DatePicker
-            control={methods.control}
-            name='date'
-            value={dayjs(chosenNote.date).format('DD/MM/YYYY')}
-            isReadOnly={isEdit ? false : true}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setDate(e.target.value)
-            }
-          />
-          <TextField
-            control={methods.control}
-            name='description'
-            value={chosenNote.description}
-            isReadOnly={isEdit ? false : true}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setDescription(e.target.value)
-            }
-          />
-          <div className={styles.formsBtns}>
+          <Input name='title' isReadOnly={isEdit ? false : true} />
+          <DatePicker name='date' isReadOnly={isEdit ? false : true} />
+          <TextField name='description' isReadOnly={isEdit ? false : true} />
+          <div className={styles.formBtns}>
             {isEdit ? (
               <>
                 <Button
                   className={styles.btnCancel}
                   key='cancel'
-                  onClick={(e) => handleSave(e)}
+                  onClick={(e) => handleCancel(e)}
                 >
                   Отмена
                 </Button>

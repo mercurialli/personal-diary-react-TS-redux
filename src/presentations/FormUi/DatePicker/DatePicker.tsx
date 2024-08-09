@@ -7,11 +7,8 @@ import ruRU from 'antd/es/locale/ru_RU';
 import styles from './DatePicker.module.scss';
 import classNames from 'classnames';
 interface RHFDatePicker {
-  control: Control<any>;
   name: string;
-  value?: string;
   isReadOnly?: boolean;
-  onChange?: any;
 }
 
 export function DatePicker(props: RHFDatePicker) {
@@ -33,7 +30,7 @@ export function DatePicker(props: RHFDatePicker) {
               [styles.formDatepicker_readonly]: props.isReadOnly,
             })}
             onChange={(date) => {
-              field.onChange(date ? date.valueOf() : null);
+              field.onChange(date ? dayjs(date).format('DD/MM/YYYY') : null);
             }}
             needConfirm
           />
