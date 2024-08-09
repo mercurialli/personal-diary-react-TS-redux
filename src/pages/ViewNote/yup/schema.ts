@@ -7,7 +7,7 @@ const schema = yup.object().shape({
     .trim()
     .required('Обязательное поле')
     .max(30, 'Превышено максимальное количество символов: 30')
-    .matches(regExpTitle, 'Неверный формат почты'),
+    .matches(regExpTitle, 'Использованы недопустимые символы: !, №, $'),
 
   date: yup.string(),
 
