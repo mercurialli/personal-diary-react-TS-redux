@@ -10,6 +10,11 @@ const schema = yup.object().shape({
     .matches(regExpTitle, 'Использованы недопустимые символы: !, №, $'),
 
   date: yup.string(),
+  // .test({
+  //   name: 'date',
+  //   message: '${path} must be less than ${max} characters',
+  // test:
+  // }),
 
   description: yup
     .string()

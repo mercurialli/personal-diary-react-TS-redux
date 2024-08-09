@@ -11,7 +11,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 dayjs.extend(customParseFormat);
 const dateFormat = 'DD.MM.YYYY';
 const customFormat: DatePickerProps['format'] = (value) =>
-  `custom format: ${value.format(dateFormat)}`;
+  value.format(dateFormat);
 interface RHFDatePicker {
   name: string;
   isReadOnly?: boolean;
@@ -37,7 +37,7 @@ export function DatePicker(props: RHFDatePicker) {
               [styles.formDatepicker_readonly]: props.isReadOnly,
             })}
             onChange={(date) => {
-              field.onChange(date ? dayjs(date).format('DD/MM/YYYY') : null);
+              field.onChange(date ? dayjs(date).format('DD.MM.YYYY') : null);
             }}
             needConfirm
           />
