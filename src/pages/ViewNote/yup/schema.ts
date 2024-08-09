@@ -1,6 +1,4 @@
-import { INote } from '@src/components/types/types';
 import * as yup from 'yup';
-import { object, ObjectSchema } from 'yup';
 
 const regExpTitle = new RegExp(/^(?:(?!.*title)(?!.*[$!#]).)*$/);
 const schema = yup.object().shape({
