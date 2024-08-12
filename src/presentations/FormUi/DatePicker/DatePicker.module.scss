@@ -22,3 +22,13 @@
     pointer-events: none;
   }
 }
+
+.error {
+  display: block;
+  color: red;
+  position: absolute;
+  margin-top: 50px;
+  margin-right: -26px;
+  font-size: small;
+  text-align: center;
+}

@@ -6,11 +6,8 @@ import styles from './Input.module.scss';
 import classNames from 'classnames';
 
 interface RHFInput {
-  control: Control<any>;
   name: string;
-  value?: string;
   isReadOnly?: boolean;
-  onChange?: any;
 }
 
 export function Input(props: RHFInput) {
@@ -20,14 +17,18 @@ export function Input(props: RHFInput) {
       name={props.name}
       control={control}
       rules={{ required: true }}
-      render={({ field }) => (
-        <AntInput
-          className={classNames(styles.formInput, {
-            [styles.formInput_readonly]: props.isReadOnly,
-          })}
-          {...field}
-          placeholder='Название'
-        />
+      render={({ field, fieldState }) => (
+        <>
+          <AntInput
+            status={fieldState.error ? 'error' : undefined}
+            className={classNames(styles.formInput, {
+              [styles.formInput_readonly]: props.isReadOnly,
+            })}
+            {...field}
+            placeholder='Название'
+          />
+          <div className={styles.error}>{fieldState.error?.message}</div>
+        </>
       )}
     />
   );

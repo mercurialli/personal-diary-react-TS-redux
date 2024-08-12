@@ -6,11 +6,8 @@ import classNames from 'classnames';
 
 const { TextArea } = Input;
 interface RHFInput {
-  control: Control<any>;
   name: string;
-  value?: string;
   isReadOnly?: boolean;
-  onChange?: any;
 }
 
 export function TextField(props: RHFInput) {
@@ -20,14 +17,19 @@ export function TextField(props: RHFInput) {
       name={props.name}
       control={control}
       rules={{ required: true }}
-      render={({ field }) => (
-        <TextArea
-          className={classNames(styles.formTextField, {
-            [styles.formTextField_readonly]: props.isReadOnly,
-          })}
-          {...field}
-          rows={10}
-        />
+      render={({ field, fieldState }) => (
+        <>
+          <TextArea
+            status={fieldState.error ? 'error' : undefined}
+            className={classNames(styles.formTextField, {
+              [styles.formTextField_readonly]: props.isReadOnly,
+            })}
+            {...field}
+            rows={10}
+          />
+
+          <div className={styles.error}>{fieldState.error?.message}</div>
+        </>
       )}
     />
   );
