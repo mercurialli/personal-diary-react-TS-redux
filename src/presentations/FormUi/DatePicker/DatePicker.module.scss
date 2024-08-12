@@ -24,7 +24,11 @@
 }
 
 .error {
+  display: block;
   color: red;
-  grid-column: 2/3;
-  grid-row: auto;
+  position: absolute;
+  margin-top: 50px;
+  margin-right: -26px;
+  font-size: small;
+  text-align: center;
 }

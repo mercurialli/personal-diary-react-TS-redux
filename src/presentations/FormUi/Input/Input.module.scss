@@ -1,5 +1,6 @@
 @import '../../../components/global.scss';
 .formInput {
+  position: relative;
   grid-row: 1/2;
   grid-column: 1/2;
 
@@ -16,8 +17,13 @@
     pointer-events: none;
   }
 }
+
 .error {
+  display: block;
   color: red;
-  grid-column: 2/3;
-  grid-row: auto;
+  position: absolute;
+  margin-top: 50px;
+  left: 476px;
+  font-size: small;
+  text-align: center;
 }

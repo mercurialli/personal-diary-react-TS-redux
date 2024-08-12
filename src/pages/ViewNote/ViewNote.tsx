@@ -10,7 +10,6 @@ import {
   SubmitHandler,
 } from 'react-hook-form';
 import { Link, useParams } from 'react-router-dom';
-import dayjs from 'dayjs';
 import { DatePicker } from '@src/presentations/FormUi/DatePicker/DatePicker';
 import { Input } from '@src/presentations/FormUi/Input/Input';
 import { TextField } from '@src/presentations/FormUi/TextField/TextField';
@@ -38,8 +37,6 @@ const ViewNote: React.FC = () => {
     setIsEdit(false);
   }
 
-  console.log('hey!!', chosenNote);
-
   const methods = useForm({
     defaultValues: {
       title: chosenNote.title,
@@ -50,7 +47,6 @@ const ViewNote: React.FC = () => {
   });
 
   const submit: SubmitHandler<INote> = (data) => {
-    console.log(data);
     dispatch(editNote({ ...data, id }));
     setIsEdit(false);
   };

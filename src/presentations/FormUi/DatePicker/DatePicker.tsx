@@ -44,7 +44,7 @@ export function DatePicker(props: RHFDatePicker) {
               needConfirm
             />
             {fieldState.error ? (
-              <span className={styles.error}>{fieldState.error?.message}</span>
+              <div className={styles.error}>{fieldState.error?.message}</div>
             ) : null}
           </>
         )}
