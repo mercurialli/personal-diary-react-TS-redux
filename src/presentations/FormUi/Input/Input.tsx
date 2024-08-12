@@ -27,9 +27,7 @@ export function Input(props: RHFInput) {
             {...field}
             placeholder='Название'
           />
-          {fieldState.error ? (
-            <div className={styles.error}>{fieldState.error?.message}</div>
-          ) : null}
+          <div className={styles.error}>{fieldState.error?.message}</div>
         </>
       )}
     />

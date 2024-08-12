@@ -27,9 +27,8 @@ export function TextField(props: RHFInput) {
             {...field}
             rows={10}
           />
-          {fieldState.error ? (
-            <div className={styles.error}>{fieldState.error?.message}</div>
-          ) : null}
+
+          <div className={styles.error}>{fieldState.error?.message}</div>
         </>
       )}
     />
