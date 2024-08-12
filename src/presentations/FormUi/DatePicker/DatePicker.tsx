@@ -19,6 +19,7 @@ interface RHFDatePicker {
 
 export function DatePicker(props: RHFDatePicker) {
   const { control } = useFormContext();
+
   return (
     <ConfigProvider locale={ruRU}>
       <Controller
