@@ -27,21 +27,26 @@ export function DatePicker(props: RHFDatePicker) {
         control={control}
         rules={{ required: true }}
         render={({ field, fieldState }) => (
-          <AntDatePicker
-            format={customFormat}
-            status={fieldState.error ? 'error' : undefined}
-            ref={field.ref}
-            name={field.name}
-            onBlur={field.onBlur}
-            value={field.value ? dayjs(field.value, dateFormat) : null}
-            className={classNames(styles.formDatepicker, {
-              [styles.formDatepicker_readonly]: props.isReadOnly,
-            })}
-            onChange={(date) => {
-              field.onChange(date ? dayjs(date).format('DD.MM.YYYY') : null);
-            }}
-            needConfirm
-          />
+          <>
+            <AntDatePicker
+              format={customFormat}
+              status={fieldState.error ? 'error' : undefined}
+              ref={field.ref}
+              name={field.name}
+              onBlur={field.onBlur}
+              value={field.value ? dayjs(field.value, dateFormat) : null}
+              className={classNames(styles.formDatepicker, {
+                [styles.formDatepicker_readonly]: props.isReadOnly,
+              })}
+              onChange={(date) => {
+                field.onChange(date ? dayjs(date).format('DD.MM.YYYY') : null);
+              }}
+              needConfirm
+            />
+            {fieldState.error ? (
+              <span className={styles.error}>{fieldState.error?.message}</span>
+            ) : null}
+          </>
         )}
       />
     </ConfigProvider>

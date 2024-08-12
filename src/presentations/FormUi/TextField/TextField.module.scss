@@ -15,3 +15,9 @@
     pointer-events: none;
   }
 }
+
+.error {
+  color: red;
+  grid-column: 2/3;
+  grid-row: auto;
+}

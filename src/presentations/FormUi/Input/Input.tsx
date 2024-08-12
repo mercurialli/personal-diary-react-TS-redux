@@ -17,14 +17,20 @@ export function Input(props: RHFInput) {
       name={props.name}
       control={control}
       rules={{ required: true }}
-      render={({ field }) => (
-        <AntInput
-          className={classNames(styles.formInput, {
-            [styles.formInput_readonly]: props.isReadOnly,
-          })}
-          {...field}
-          placeholder='Название'
-        />
+      render={({ field, fieldState }) => (
+        <>
+          <AntInput
+            status={fieldState.error ? 'error' : undefined}
+            className={classNames(styles.formInput, {
+              [styles.formInput_readonly]: props.isReadOnly,
+            })}
+            {...field}
+            placeholder='Название'
+          />
+          {fieldState.error ? (
+            <span className={styles.error}>{fieldState.error?.message}</span>
+          ) : null}
+        </>
       )}
     />
   );
