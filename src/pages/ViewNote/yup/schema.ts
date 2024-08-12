@@ -18,7 +18,7 @@ const schema = yup.object().shape({
       message: 'Дата не может быть в прошлом',
       test: function (value) {
         const currentDate = dayjs(Date.now()).format('DD.MM.YYYY');
-        return value && value >= currentDate;
+        return value >= currentDate;
       },
     }),
   description: yup
